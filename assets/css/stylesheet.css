@@ -1,0 +1,113 @@
+body, html {
+  margin: 0; padding: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #ffafbd;
+  font-family: 'Brush Script MT', cursive;
+}
+
+.stage {
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.hidden { display:none; }
+
+.pulse-btn, .tap-btn {
+  background: gold;
+  color: black;
+  font-size: 24px;
+  padding: 15px 40px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity:1; }
+  50% { transform: scale(1.1); opacity:0.7; }
+  100% { transform: scale(1); opacity:1; }
+}
+
+#cake, #cakeBox, .cake-center {
+  position: relative;
+}
+#flame, #flameSmall {
+  position:absolute;
+  top:0; left:50%;
+  transform:translate(-130px,-160px);
+	width :250px;
+  height: 500px;
+}
+
+.slideshow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 90%;
+  height: 80%;
+  align-items: center;
+}
+.slideshow .photos, .slideshow .messages {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.slide {
+  display:none;
+  width:300px; height:auto;
+  border-radius:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+.slide.active { display:block; }
+
+.msg { display:none; font-size:  4rem;; color:gold; text-align:center; }
+.msg.active { display:block; }
+
+.final-text {
+  font-size:48px;
+  color:gold;
+  text-shadow:0 0 15px #ffd700;
+  text-align:center;
+}
+
+/* === Footer Navigation Styles === */
+#footerNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.0);
+  padding: 15px;
+  text-align: center;
+  z-index: 1000;
+}
+
+#footerNav button {
+  background: gold;
+  color: black;
+  border: none;
+  padding: 12px 25px;
+  margin: 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#footerNav button:hover {
+  background: orange;
+  color: white;
+}
+
+#confetti{
+  position: absolute;
+  width:100vw;
+}
