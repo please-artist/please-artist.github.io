@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Tanu 🎂</title>
+  <link rel="stylesheet" href="./assets/css/stylesheet.css">
+  <link rel="stylesheet" href="./assets/css/curtain.css">
+  <link rel="stylesheet" href="./assets/css/sketch.css">
+</head>
+<body>
+  <!-- Dark Screen Intro -->
+  <div id="intro" class="stage">
+  </div>
+
+  <!-- Sketch Stage -->
+  <div id="sketchStage" class="stage hidden">
+    <canvas id="sketchCanvas"></canvas>
+  </div>
+
+  <!-- Curtain Stage -->
+  <div id="curtainStage" class="stage hidden">
+    <img src="./assets/images/curtains.png" class="curtain left">
+    <img src="./assets/images/curtains.png" class="curtain right">
+    <img src="./assets/images/ribbon.png" id="ribbon">
+    <div id="smileyBalloons"></div>
+  </div>
+
+  <!-- Balloon Stage -->
+  <div id="balloonStage" class="stage hidden">
+    <img src="./assets/images/ribbon.png" id="ribbon2">
+    <div id="heartBalloons"></div>
+  </div>
+
+  <!-- Cake Stage -->
+  <div id="cakeStage" class="stage hidden">
+    <div id="cakeBox">
+      <img src="./assets/images/flame-unscreen.gif" id="flame">
+      <img src="./assets/images/cake.png" id="cake">
+    </div>
+  </div>
+
+  <!-- Slideshow Stage -->
+  <div id="slideshowStage" class="stage hidden">
+    <div class="slideshow">
+      <div class="photos">
+        <img src="./assets/photos/pic1.jpg" class="slide active">
+        <img src="./assets/photos/pic2.jpg" class="slide">
+        <img src="./assets/photos/pic3.jpg" class="slide">
+        <img src="./assets/photos/pic4.jpg" class="slide">
+        <img src="./assets/photos/pic5.jpg" class="slide">
+        <img src="./assets/photos/pic6.jpg" class="slide">
+        <img src="./assets/photos/pic7.jpg" class="slide">
+        <img src="./assets/photos/pic8.jpg" class="slide">
+        <img src="./assets/photos/pic9.jpg" class="slide">
+        <img src="./assets/photos/pic10.jpg" class="slide">
+      </div>
+      <div class="cake-center">
+        <img src="./assets/images/flame-unscreen.gif" id="flameSmall">
+        <img src="./assets/images/CAKE.png" class="cake-center">
+      </div>
+      <div class="messages">
+        <div class="msg active">Happy Birthday my love 💖</div>
+        <div class="msg">You are my sunshine 🌸</div>
+        <div class="msg">Forever and always with you ❤️</div>
+        <div class="msg">Your smile is my happiness 😊</div>
+        <div class="msg">Our memories are my treasure ✨</div>
+        <div class="msg">You complete me 💕</div>
+        <div class="msg">Every moment with you is special 💫</div>
+        <div class="msg">My heart beats for you 💓</div>
+        <div class="msg">Together forever 🕊️</div>
+        <div class="msg">I love you infinitely ❤️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Stage -->
+  <div id="finalStage" class="stage hidden">
+    <h1 class="final-text">I Love You Forever and Always ❤️</h1>
+    <canvas id="confetti"></canvas>
+  </div>
+  
+  <footer id="footerNav">
+    <button id="startBtn" class="pulse-btn">Start</button>
+    <button id="sketchNext" class="tap-btn hidden">Next</button>
+    <button id="curtainNext" class="tap-btn hidden">Next</button>
+    <button id="balloonNext" class="tap-btn hidden">Next</button>
+    <button id="cakeNext" class="tap-btn hidden">Next</button>
+    <button id="slideshowNext" class="tap-btn hidden">Next</button>
+  </footer>
+
+  <audio id="bgMusic" src="./assets/music/melody.mp3" loop></audio>
+
+<script src="./assets/js/sketch.js"></script>
+<script src="./assets/js/balloons.js"></script>
+<script src="./assets/js/confetti.js"></script>
+<script src="./assets/js/effect.js"></script>
+<script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let slides = document.querySelectorAll(".photos .slide");
+        let msgs = document.querySelectorAll(".messages .msg");
+        let current = 0;
+
+        function showSlide(index) {
+          slides.forEach(s => s.classList.remove("active"));
+          msgs.forEach(m => m.classList.remove("active"));
+
+          slides[index].classList.add("active");
+          msgs[index].classList.add("active");
+        }
+
+        function nextSlide() {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }
+        showSlide(current);
+        setInterval(nextSlide, 2000);
+      });
+</script>
+</body>
+</html>
